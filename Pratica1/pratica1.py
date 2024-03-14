@@ -188,8 +188,8 @@ class EX7:
 
 
 def main():
-  inputsTrueEx1 = ['ba', 'baab', 'babaa', 'baaaab', 'babaaaab', 'baaaaabab', 'babaaaabaa', 'baaaaababab', 'babaaaababaa', 'baaaaabababab', 'babaaaabababaa', 'baaaaababababab', 'babaaaababababaa', 'baaaaabababababab', 'babaaaabababababaa', 'baaaaababababababab', 'babaaaababababababaa', 'baaaaabababababababab', 'babaaaabababababababaa', 'baaaaababababababababab', 'babaaaababababababababaa']
-  inputsFalseEx1 = ['a', 'b', 'ab', 'ba', 'abab', 'baba', 'abababab', 'babababa', 'ababababab', 'bababababa', 'abababababab', 'babababababa', 'ababababababab', 'bababababababa', 'abababababababab', 'babababababababa', 'ababababababababab', 'bababababababababa']
+  inputsTrueEx1 = ['bba','baba', 'baaba', 'baaaba', 'baaaaaaaaaba']
+  inputsFalseEx1 = ['b', 'ba', 'baa', 'baaa']
   inputsTrueEx2 = ['', 'aaa', 'bbb', 'ababab', 'bababa', 'ababababb', 'babababaa', 'abb', 'bba']
   inputsFalseEx2 = ['a', 'b', 'ab', 'ba', 'abab', 'baba', 'abababab', 'babababa', 'ababababab', 'bababababa']
   inputsTrueEx3 = ["aa", "bb", "abab", "baba", "aabb", "bbaa", "ab", "ba", "abba", "ababab", "baba", "abababab", "babbabab", "aabbaabbaabb", "baabbaabbaab", "ababbaababba"]
