@@ -23,14 +23,16 @@ def clear():
 
 class EX1:
   def __init__(self):
-    self.states = ['q0', 'q1', 'q2', 'q3']
+    self.states = ['q0', 'q1', 'q2', 'q3', 'Trap']
     self.alphabet = ['a', 'b']
     self.initial_state = 'q0'
     self.final_states = ['q3']
     self.transitions = {
-      'q0': {'b': 'q1'},
+      'q0': {'a': 'Trap','b': 'q1'},
       'q1': {'a': 'q1', 'b': 'q2'},
-      'q2': {'a': 'q3'}      
+      'q2': {'a': 'q3', 'b': 'Trap'}, 
+      'q3': {'a': 'Trap', 'b': 'Trap'}, 
+      'Trap': {'a': 'Trap', 'b': 'Trap'}
     }
 
   def accept(self, input_string):
@@ -38,7 +40,7 @@ class EX1:
     for symbol in input_string:
       if symbol not in self.alphabet:
         return False
-      if current_state == self.final_states and symbol != 'a':
+      if current_state == self.final_states:
         return False
       current_state = self.transitions[current_state].get(symbol)
       if current_state is None:
@@ -160,18 +162,17 @@ class EX6:
 
 class EX7:
   def __init__(self):
-    self.states = ['q0', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6']
+    self.states = ['q0', 'q1', 'q2', 'q3', 'q4', 'q5']
     self.alphabet = ['a', 'b']
     self.initial_state = 'q0'
-    self.final_states = ['q1', 'q2', 'q4', 'q6']
+    self.final_states = ['q1', 'q2', 'q4']
     self.transitions = {
       'q0': {'a': 'q1', 'b': 'q2'},
       'q1': {'a': 'q0', 'b': 'q3'},
       'q2': {'a': 'q3', 'b': 'q4'},
       'q3': {'a': 'q2', 'b': 'q5'},
-      'q4': {'a': 'q5', 'b': 'q6'},
+      'q4': {'a': 'q5', 'b': 'q0'},
       'q5': {'a': 'q4', 'b': 'q1'},
-      'q6': {'a': 'q4', 'b': 'q2'},  
     }
     
   def accept(self, input_string):
@@ -199,7 +200,7 @@ def main():
   inputsFalseEx5 = ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23', '25', '27', '29', '31', '33', '35', '37', '39', '41', '43', '45', '47', '49', '51', '53', '55', '57', '59', '61', '63', '65', '67', '69', '71', '73', '75', '77', '79', '81', '83', '85', '87', '89', '91', '93', '95', '97', '99']
   inputsTrueEx6 = ['0', '5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55', '60', '65', '70', '75', '80', '85', '90', '95']
   inputsFalseEx6 = ['1', '2', '3', '4', '6', '7', '8', '9', '11', '12', '13', '14', '16', '17', '18', '19', '21', '22', '23', '24', '26', '27', '28', '29', '31', '32', '33', '34', '36', '37', '38', '39', '41', '42', '43', '44', '46', '47', '48', '49', '51', '52', '53', '54', '56', '57', '58', '59', '61', '62', '63', '64', '66', '67', '68', '69', '71', '72', '73', '74', '76', '77', '78', '79', '81', '82', '83', '84', '86', '87', '88', '89', '91', '92', '93', '94', '96', '97', '98', '99']
-  inputsTrueEx7 = ['baabbbbaaab', 'babbbbbbbbbbb', 'abaaaabbaabbaab', 'bbbbbabbb', 'abbbaabbabaaaabbbbabb', 'bbabaabbbabbbbbaabaaa', 'abaabbaaaa', 'bbabaababbbaaabb', 'baababaaaa', 'bababbbbbbbbbba', 'bbaabbabb', 'bbbaaabbbaa', 'aaaaabbb', 'abbbbbbbbbaa', 'a', 'bbb']
+  inputsTrueEx7 = ['baabbbbaaab', 'babbbbbbbbbbb', 'abaaaabbaabbaab', 'bbbbbabbb', 'abbbaabbabaaaabbbbabb', 'bbabaabbbabbbbbaabaaa', 'abaabbaaaa', 'bbabaababbbaaabb', 'baababaaaa', 'bababbbbbbbbbba', 'bbaabbabb', 'bbbaaabbbaa', 'aaaaabbb', 'abbbbbbbbbaa', 'a']
   inputsFalseEx7 = ['', 'aaa', 'bbb', 'ababab', 'bababa', 'ababababb', 'babababaa', 'abb', 'bba']
 
   ex1 = EX1()
